@@ -1,0 +1,3 @@
+[submodule "nixpak"]
+	path = nixpak
+	url = ./nixpak

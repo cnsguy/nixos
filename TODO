@@ -1,0 +1,76 @@
+RECHECK PERSISTENT DIR PARENTS
+ - seems like there's no way to set permission bits on the entire path tree with persistence
+
+VM
+ - auto resize for sway: https://gist.github.com/astrashe/3875b39729861129ebe03752e6df3e88
+ - share clipboard with host (needs spice?): https://gist.github.com/astrashe/15a05447e9f0ad1d9ae2e8b9a8f573f4
+ - drop the separate user concept, it's not working out
+
+SANDBOX
+ - check how the document portal really works
+ - we need to bind mount to /run/flatpak/doc instead of bind mounting the entire /run/user/1000/doc dir
+
+GET
+ - lazyvim
+ - mpv
+ - spotify
+
+HYPRLAND THEMES
+ - discord theme
+ - gruvbox cursors from https://github.com/rehanzo/phinger-cursors-gruvbox-material
+ - gruvbox liberwolf userstyle css
+ - catppuccin latte?
+  -> gtk (ignore the fact it's unmaintained)
+  -> vscode
+  -> firefox (latte, blue/sky)
+  -> vesktop
+  -> waybar colors
+  -> hyprland borders
+  -> term colors
+
+HYPRLAND CLEANUPS
+ - change waybar font to match terminal font exactly instead of hardcoding pixel size
+ - mod4+v conflicts with floating toggle
+ - get rid of the handrolled lua config, use home-manager lua generation
+
+WAYBAR
+ - make workspaces clickable (probably needs a custom patch)
+
+replace hardcoded system with ${pkgs.stdenv.hostPlatform.system}
+ - in hyprland.nix
+ - in flake.nix
+
+LEARN
+ - cargo2nix
+  -> nix run github:cargo2nix/cargo2nix
+
+NETWORK PRIVACY
+ - randomize hostname
+ - randomize mac address
+
+CUSTOM HOMEPAGE
+ - would work well with librewolf being stateless
+
+VIM
+ - disable X clipboard
+
+SANDBOX CLEANUP
+ - switch to nixpak fully
+
+HARDENED ALLOCATOR
+ - scudo system allocator
+ - sandboxed apps can choose to ignore /etc/ld-nix.so.preload and /etc/static/ld-nix.so.preload
+
+CFLAG HARDEN
+ - wpa_supplicant
+ - hyprland
+
+KENERL HARDEN
+ - test TIOCSTI
+ - test prctl(PR_SET_MDWE)
+ - clean up unnecessary flags
+ - custom cflags
+ - TODO switch back to LinuxPackages_hardened_patched (pkgs.linux_hardened.override)
+ - try setting isHardened to true
+ - fix activationScripts
+ - CFI
